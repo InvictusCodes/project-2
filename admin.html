@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Alumni Connect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-brand-container">
+                <h1 class="nav-brand-title">Alumni Connect</h1>
+                <p class="nav-brand-subtitle">Project by Pixel Pirates</p>
+            </div>
+            <ul class="nav-list">
+                <li><a href="index.html">Alumni Directory</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="admin.html">Admin Login</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="admin-login" class="admin-panel">
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <label for="admin-email">Email:</label>
+                <input type="email" id="admin-email" placeholder="Enter your @somaiya.edu email" required>
+                <label for="admin-password">Password:</label>
+                <input type="password" id="admin-password" required>
+                <button type="submit">Log In</button>
+            </form>
+        </section>
+
+        <section id="admin-dashboard" class="admin-panel" style="display:none;">
+            <h2>Admin Dashboard</h2>
+            <p>Welcome, Admin! Manage alumni and events here.</p>
+            
+            <div class="admin-section">
+                <h3>Alumni Management</h3>
+                <form id="add-alumni-form">
+                    <h4>Add New Alumni</h4>
+                    <input type="text" id="alumni-name" placeholder="Name" required>
+                    <input type="text" id="alumni-college-id" placeholder="College ID" required>
+                    <input type="text" id="alumni-profession" placeholder="Profession" required>
+                    <input type="number" id="alumni-year" placeholder="Graduation Year" required>
+                    <textarea id="alumni-desc" placeholder="Description"></textarea>
+                    <input type="text" id="alumni-linkedin" placeholder="LinkedIn Profile URL">
+                    <input type="file" id="alumni-photo-upload" accept="image/*">
+                    <button type="submit">Add Alumni</button>
+                </form>
+                <div id="alumni-edit-list" class="alumni-edit-list">
+                    <h4>Edit/Remove Alumni</h4>
+                    </div>
+            </div>
+
+            <div class="admin-section">
+                <h3>Event Management</h3>
+                <form id="add-event-form">
+                    <h4>Add New Event</h4>
+                    <input type="text" id="event-title" placeholder="Event Title" required>
+                    <input type="text" id="event-date" placeholder="Date (e.g., Oct 25, 2025)" required>
+                    <textarea id="event-desc" placeholder="Event Description" required></textarea>
+                    <button type="submit">Add Event</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
