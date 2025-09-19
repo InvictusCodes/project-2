@@ -1,0 +1,502 @@
+/* style.css - Final Refinements for Visual Perfection */
+
+/* --- Modern Color Palette & Global Styles --- */
+:root {
+    --primary-red: #c0392b;      /* A deep, professional red */
+    --accent-red: #e74c3c;       /* A brighter red for highlights */
+    --text-dark: #34495e;        /* A cool, dark gray for body text */
+    --text-light: #f5f7fa;       /* Off-white for text on dark backgrounds */
+    --bg-light: #ffffff;         /* Clean white background */
+    --bg-gray: #f8f9fa;          /* Light gray for sections */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-heavy: rgba(0, 0, 0, 0.2);
+}
+
+/* Base styles for a clean, modern look */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 60px;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+body.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* --- Sleek, Glassy, Sticky Navbar (Reverted to a previous version) --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 2rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-brand-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nav-brand-title {
+    font-size: 1.6rem;
+    color: var(--primary-red);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+}
+
+.nav-brand-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    margin: 0;
+    opacity: 0.7;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-red);
+    transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.nav-list a:hover {
+    color: var(--accent-red);
+}
+
+/* --- Alumni Directory & Search Bar (Updated for Alignment) --- */
+.directory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-red);
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
+.search-container {
+    position: relative;
+    width: 350px;
+    display: flex; /* Use flexbox for perfect alignment */
+    align-items: center;
+}
+
+/* Styling for the search input to match the reference image */
+#alumni-search {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding-left: 2.5rem; /* Space for the icon */
+}
+
+#alumni-search:focus {
+    outline: none;
+    border-color: #a0a0a0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    color: #999;
+}
+
+/* --- Alumni Cards & Hover Effects --- */
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.alumni-card {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-light);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    animation: fadeInUp 0.5s ease-out;
+    border: 1px solid #eee;
+}
+
+.alumni-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 30px var(--shadow-heavy);
+}
+
+.alumni-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 15%;
+    object-fit: cover;
+    border: 4px solid var(--primary-red);
+    transition: transform 0.3s ease, border-radius 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.alumni-card:hover .alumni-photo {
+    transform: scale(1.08);
+}
+
+.alumni-name {
+    font-size: 1.7rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.alumni-details {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+/* --- Pop-up Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 3rem;
+    position: relative;
+    animation: scaleIn 0.4s ease-out;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* This is the new rule to make the description scrollable */
+.modal-description {
+    max-height: 250px; /* Adjust this value as needed */
+    overflow-y: auto;
+    text-align: left; /* Align text to the left for better readability */
+    padding-right: 15px; /* Add some padding for the scrollbar */
+    margin-bottom: 1rem;
+}
+
+.modal-content .alumni-photo-modal {
+    width: 150px;
+    height: 150px;
+    border-radius: 15%;
+    border: 5px solid var(--primary-red);
+    margin-bottom: 1.5rem;
+}
+
+.modal-content h3 {
+    color: var(--primary-red);
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content a {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.modal-content a:hover {
+    color: var(--primary-red);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-red);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.close-button:hover {
+    transform: rotate(90deg);
+    color: var(--accent-red);
+}
+
+/* --- Admin Panel and Forms --- */
+.admin-panel, .events-section, .about-section {
+    background-color: var(--bg-gray);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    margin-top: 2rem;
+}
+
+.admin-panel h2, .events-section h2, .about-section h2 {
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea, input[type="file"] {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 8px rgba(192, 57, 43, 0.3);
+}
+
+button[type="submit"], .admin-actions button {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover, .admin-actions button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-alumni-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-light);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.admin-actions .edit-btn {
+    background-color: #f39c12;
+    margin-right: 0.5rem;
+}
+.admin-actions .edit-btn:hover {
+    background-color: #e67e22;
+}
+
+.admin-actions .remove-btn {
+    background-color: var(--accent-red);
+}
+.admin-actions .remove-btn:hover {
+    background-color: #c0392b;
+}
+
+/* --- Footer & Feedback Form (Updated for Visibility) --- */
+.main-footer {
+    background-color: var(--bg-gray); /* Subtle gray background */
+    color: var(--text-dark); /* Dark text on light background */
+    text-align: center;
+    padding: 2.5rem 0;
+    margin-top: 4rem;
+    position: relative;
+    padding-bottom: 5rem;
+}
+
+.feedback-section {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 900;
+}
+
+.feedback-button {
+    background-color: var(--primary-red);
+    color: #fff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.feedback-button:hover {
+    background-color: var(--accent-red);
+}
+
+.feedback-form-container {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 1rem);
+    left: 0;
+    background: var(--bg-light);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    z-index: 999;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .nav-brand-container {
+        align-items: center;
+    }
+
+    .nav-list {
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .directory-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .alumni-card {
+        padding: 1rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .feedback-section {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 1rem;
+    }
+    .feedback-form-container {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-brand-title {
+        font-size: 1.3rem;
+    }
+    .nav-brand-subtitle {
+        font-size: 0.7rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .alumni-grid {
+        grid-template-columns: 1fr;
+    }
+}
